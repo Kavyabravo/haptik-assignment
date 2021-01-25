@@ -1,0 +1,65 @@
+.header {
+    background: #c7c7c7;
+    font-family: revert;
+    font-weight: bold;
+    text-align: left;
+    width: 300px;
+    padding-left: 15px;
+}
+.search-bar {
+    outline: none;
+    border: 0px solid #c7c7c7;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    font-size: small;
+    width: 298px;
+    border-bottom-width: 1px;
+    font-weight: 600;
+}
+.friend-name {
+    font-family: revert;
+    font-weight: bold;
+    font-size: small;
+    text-align: left;
+}
+.user-request-status {
+    font-family: revert;
+    font-size: x-small;
+    text-align: left;
+    color: #c7c7c7;
+}
+.add-to-fav{
+    border: 1px solid #c7c7c7;
+    padding: 0px 12px 3px 12px;
+    font-size: large;
+    border-radius: 3px;
+    margin-right: 20px;
+    height: 10px;
+    width: 20px;
+    color: white;
+    -webkit-text-stroke: 1px #c7c7c7;
+}
+.fav{
+    color: #c7c7c7; 
+}
+.delete-friend {
+    border: 1px solid #c7c7c7;
+    padding: 2px 10px 4px 10px;
+    margin-bottom: 0px;
+    border-radius: 3px;
+}
+.friend-row {
+    width: 300px;
+    padding-top: 5px;
+    border: 1px solid #c7c7c7;
+}
+.search-container {
+    height: 34px;
+    width: 300px;
+    border: 1px solid #c7c7c7;
+}
+.user-list {
+    width: 300px;
+    padding-top: 5px;
+    border: 1px solid #c7c7c7;
+}
