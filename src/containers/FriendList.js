@@ -1,15 +1,19 @@
-import SearchFriend from "./SearchFriend";
-import FriendRow from "./FriendRow";
-import { useState, useEffect } from 'react';
+import SearchFriend from "../components/SearchFriend";
+import FriendRow from "../components/FriendRow";
+import { useSelector, useDispatch } from "react-redux";
+import {getFriendList} from '../api/apiHandler'
+import { useState } from 'react';
 import "./FriendList.css";
 
 function FriendList() {
+  console.log(useSelector(state => state.friendList))
+  const dispatch = useDispatch()
   const [myFriendList, setMyFriendList] = useState([{"id":1,"name":"Kavya","isFav":false},{"id":2,"name":"Pavs","isFav":false},{"id":3,"name":"Ronga","isFav":false},{"id":4,"name":"Swathi","isFav":false},{"id":5,"name":"Spandana","isFav":false},{"id":6,"name":"Krishna","isFav":false}]);
+  const [showAddedFriends, setshowAddedFriends] = useState(true)
   const handleRemoveFriend = (id) =>{
+    dispatch(getFriendList())
     const newFriendList = myFriendList.filter(friend =>{
-      if(friend.id!==id){
-        return true
-      }
+        return (friend.id!==id)?true:false
     })
     setMyFriendList(newFriendList)
   }
@@ -22,6 +26,7 @@ function FriendList() {
         {
           isFriendAdded = true
         }
+        return friend
       })
       if(!isFriendAdded)
       {
@@ -32,9 +37,6 @@ function FriendList() {
       }
     }
   }
-  // useEffect(
-  //   console.log("Friend added"),[myFriendList]
-  // )
   const handleAddToFav = (id) =>{
     const newFriendList = myFriendList.map(friend=>{
      if(friend.id===id){
@@ -49,13 +51,15 @@ function FriendList() {
       <div className="header row">Friends List</div>
         <SearchFriend 
         handleAddFriend={handleAddFriend}
+        showAddedFriends= {showAddedFriends}
+        setshowAddedFriends = {setshowAddedFriends}
         />
-        {myFriendList.map(friend => (<FriendRow
+        {showAddedFriends?myFriendList.map(friend => (<FriendRow
         key={friend.id}
         friend = {friend}
         handleRemoveFriend = {handleRemoveFriend}
         handleAddToFav = {handleAddToFav}
-        />))}
+        />)):null}
 
     </div>
   );

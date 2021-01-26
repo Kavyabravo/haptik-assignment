@@ -1,5 +1,5 @@
-import './App.css';
-import FriendList from './friendList/FriendList'
+import FriendList from './containers/FriendList'
+
 function App() {
   return (
     <div className="App">
