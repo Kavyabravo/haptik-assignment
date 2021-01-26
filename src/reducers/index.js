@@ -52,6 +52,7 @@ const userReducer=(state=initialState, action)=>{
                 else{
                     unFavList.push(friend)
                 }
+                return friend
             })
             friendList= friendList.concat(unFavList)
             return{
@@ -108,12 +109,16 @@ const userReducer=(state=initialState, action)=>{
 
             }
         case "UPDATE_FAVOURITES":
-            let myFriendList = state.friendList.map(friend=>{
+            let favFriend;
+            let myFriendList = state.friendList.filter(friend=>{
                 if(friend.id===action.id){
                  friend.isFav = !friend.isFav
+                 favFriend = friend
+                 return false
                 } 
-                return friend;
+                return true;
                })
+            myFriendList = favFriend?[favFriend].concat(myFriendList):myFriendList
             return{
                 ...state,
                 "loading":false,

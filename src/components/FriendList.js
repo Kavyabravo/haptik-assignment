@@ -18,10 +18,12 @@ function FriendList(props) {
                 handleAddToFav = {props.handleAddToFav}
             />
         )):null}
+        {props.showAddedFriends?
         <div className="pagination-btn-wrapper row">
         <span onClick={props.handlePreviousPage} className={`pagination-btn`}>{"<"}</span>
         <span onClick={props.handleNextPage} className="pagination-btn">{">"}</span>
         </div>
+        :null}
     </div>
   );
 }

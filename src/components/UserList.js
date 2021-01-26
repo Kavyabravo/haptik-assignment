@@ -4,7 +4,7 @@ function User(props) {
     return (
         <React.Fragment>
           {props.userList.map(user => {
-              return <div className={`row user-list ${props.newFriend?.id===user.id?"selected":""}`}
+              return <div className={`row user-list`}
               key={`${user.id}-li-user`} onClick={()=>props.handleSelectFriend(user)}>
                       {user.name}
                      </div>

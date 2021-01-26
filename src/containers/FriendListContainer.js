@@ -19,19 +19,20 @@ function FriendListContainer() {
   });
   const handleRemoveFriend = (id) =>{
     dispatch(removeFromMyFriendList(id))
-    dispatch(loadPage(pageNo))
+    dispatch(loadPage(1))
   }
   const handleAddFriend = (newFriend) =>{
     console.log("add friend request",newFriend)
     if(newFriend.id){
       dispatch(addToMyFriendList(newFriend))
-      dispatch(loadPage(pageNo))
+      dispatch(sortMyFriendList())
+      dispatch(loadPage(1))
     }
   }
   const handleAddToFav = (id) =>{
     dispatch(updateFavourites(id))
     dispatch(sortMyFriendList())
-    dispatch(loadPage(pageNo))
+    dispatch(loadPage(1))
   }
   const handlePreviousPage = () =>{
     dispatch(loadPage(pageNo-1))
