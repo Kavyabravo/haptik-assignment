@@ -1,9 +1,9 @@
-import FriendList from './containers/FriendList'
+import FriendListContainer from './containers/FriendListContainer'
 
 function App() {
   return (
     <div className="App">
-      <FriendList />
+      <FriendListContainer />
     </div>
   );
 }

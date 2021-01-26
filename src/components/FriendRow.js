@@ -1,6 +1,5 @@
 function FriendRow(props) {
     return (
-      // <div className="container">
         <div className="row friend-row">
           <div className="col-sm-6">
             <div className="friend-name">
@@ -23,7 +22,6 @@ function FriendRow(props) {
             </span>
           </div>         
         </div>
-      // </div>
     );
   }
   

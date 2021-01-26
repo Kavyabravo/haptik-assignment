@@ -24,3 +24,38 @@ export function loadFriendListSuccess(friendList){
         friendList: friendList
 }
 }
+
+export function updateMyFriendList(newFriendList){
+    return {
+        type:"UPDATE_MY_FRIEND_LIST",
+        newFriendList: newFriendList
+}
+}
+
+export function removeFromMyFriendList(id){
+    return {
+        type:"REMOVE_FROM_MY_FRIEND_LIST",
+        id: id
+}
+}
+
+export function addToMyFriendList(newFriend){
+    return {
+        type:"ADD_TO_MY_FRIEND_LIST",
+        newFriend: newFriend
+}
+}
+
+export function updateFavourites(id){
+    return {
+        type:"UPDATE_FAVOURITES",
+        id: id
+}
+}
+
+export function sortMyFriendList(){
+    console.log("action","sortingList")
+    return {
+        type:"SORT_MY_FRIEND_LIST"
+}
+}

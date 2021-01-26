@@ -77,3 +77,23 @@
 .selected {
     background: #c9c9c9;
 }
+.pagination-btn-wrapper {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+}
+.pagination-btn {
+    background: #c7c7c7;
+    padding: 0px 15px 5px 15px;
+    border-radius: 3px;
+    margin: 15px;
+    font-weight: 600;
+    color: white;
+}
+.pagination-btn:hover {
+    background: #bdbdbd;
+}
+.disable-btn {
+    background:#dfdfdf
+}
