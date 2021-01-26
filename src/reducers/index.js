@@ -2,11 +2,28 @@ const initialState = {
     "loading":false,
     "userList":[],
     "friendList":[],
+    "friendListPage":[],
+    "pageCount":0,
+    "pageNo":1,
+    "perPageCount":4,
     "error": ""
 }
 
 const userReducer=(state=initialState, action)=>{
     switch (action.type) {
+        case "LOAD_PAGE":
+            if(action.pageNo>0&&action.pageNo<=state.pageCount){
+            let lowerCount = (action.pageNo-1) * state.perPageCount
+            let upperCount = action.pageNo * state.perPageCount
+            let friendListPage = state.friendList.slice(lowerCount,upperCount)
+            return{
+                ...state,
+                "friendListPage":friendListPage,
+                "pageNo":action.pageNo
+            }}
+            else{
+                return state
+            }
         case "FETCHING_DATA":
             return{
                 ...state,
@@ -43,10 +60,14 @@ const userReducer=(state=initialState, action)=>{
                 friendList:friendList
             }
         case "LOAD_FRIEND_LIST_SUCCESS":
+            let count = action.friendList.length
+            let noOfPages = Math.ceil(count/state.perPageCount)
             return{
                 ...state,
                 "loading":false,
-                friendList:action.friendList
+                friendList:action.friendList,
+                pageCount: noOfPages,
+                pageNo:action.pageNo
             }
         case "UPDATE_MY_FRIEND_LIST":
             return{
@@ -61,7 +82,8 @@ const userReducer=(state=initialState, action)=>{
             return{
                 ...state,
                 "loading":false,
-                friendList:newFriendList
+                friendList:newFriendList,
+                pageCount:Math.ceil(newFriendList.length/state.perPageCount)
             }
         case "ADD_TO_MY_FRIEND_LIST":
             let isFriendAdded = false
@@ -75,12 +97,15 @@ const userReducer=(state=initialState, action)=>{
             })
             if(!isFriendAdded)
             {
-                newMyFriendList.push(action.newFriend)
+                newMyFriendList =[action.newFriend].concat(newMyFriendList)
             }
+            
             return{
                 ...state,
-                "loading":false,
-                friendList:newMyFriendList
+                loading:false,
+                friendList:newMyFriendList,
+                pageCount:Math.ceil(newMyFriendList.length/state.perPageCount)
+
             }
         case "UPDATE_FAVOURITES":
             let myFriendList = state.friendList.map(friend=>{

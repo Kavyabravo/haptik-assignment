@@ -59,3 +59,11 @@ export function sortMyFriendList(){
         type:"SORT_MY_FRIEND_LIST"
 }
 }
+
+export function loadPage(pageNo){
+    console.log("pagination", pageNo)
+    return {
+        type:"LOAD_PAGE",
+        pageNo:pageNo
+}
+}

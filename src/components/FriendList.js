@@ -19,8 +19,8 @@ function FriendList(props) {
             />
         )):null}
         <div className="pagination-btn-wrapper row">
-        <span className="pagination-btn">{"<"}</span>
-        <span className="pagination-btn">{">"}</span>
+        <span onClick={props.handlePreviousPage} className={`pagination-btn`}>{"<"}</span>
+        <span onClick={props.handleNextPage} className="pagination-btn">{">"}</span>
         </div>
     </div>
   );
