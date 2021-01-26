@@ -1,6 +1,6 @@
 .header {
     background: #c7c7c7;
-    border-radius: 6px 6px 0px 0px;
+    /* border-radius: 6px 6px 0px 0px; */
     font-family: revert;
     font-weight: bold;
     text-align: left;
@@ -19,8 +19,6 @@
     width: 298px;
     border-bottom-width: 1px;
     font-weight: 600;
-    box-shadow: 
-    inset 0px -11px 8px -10px #CCC; 
 }
 
 .friend-name {
@@ -90,6 +88,7 @@
 }
 .user-list:hover {
     background:#dfdfdf;
+    box-shadow: 0 0 10px;
 }
 .selected {
     background: #c9c9c9;
@@ -119,10 +118,6 @@
 .friend-list {
     margin-top: 20px;
     border-radius: 6px 6px 0px 0px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    box-shadow: 0px 15px 10px -15px #111;
     width: 300px !important
-}
-.friend-list:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    width: 300px;
 }
