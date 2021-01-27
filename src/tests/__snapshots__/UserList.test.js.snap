@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User List Snapshot 1`] = `
+<div
+  className="row user-list"
+  onClick={[Function]}
+>
+  kav
+</div>
+`;
