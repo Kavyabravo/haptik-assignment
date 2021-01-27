@@ -19,7 +19,7 @@ function FriendListContainer() {
   const [showAddedFriends, setshowAddedFriends] = useState(true);
   useEffect(() => {
     // Load friendList by calling API
-    if (myFriendList.length < 1) {
+    if (myFriendList.length < 1 && pageNo === -1) {
       dispatch(getFriendList());
     }
   });

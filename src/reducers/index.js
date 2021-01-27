@@ -6,7 +6,7 @@ const initialState = {
   friendList: [],
   friendListPage: [],
   pageCount: 0,
-  pageNo: 1,
+  pageNo: -1,
   perPageCount: 4,
   error: "",
 };
@@ -14,7 +14,12 @@ const initialState = {
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.LOAD_PAGE:
-      if (action.pageNo > 0 && action.pageNo <= state.pageCount) {
+      if (!state.pageCount) {
+        return {
+          ...state,
+          friendListPage: [],
+        };
+      } else if (action.pageNo > 0 && action.pageNo <= state.pageCount) {
         let lowerCount = (action.pageNo - 1) * state.perPageCount;
         let upperCount = action.pageNo * state.perPageCount;
         let friendListPage = state.friendList.slice(lowerCount, upperCount);
